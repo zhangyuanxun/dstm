@@ -7,6 +7,8 @@ test.py
 
 # python c file
 *.pyc
+*.pdf
+*.npy
 
 # add models folder not content
 /dataset/**/*.*

@@ -1,5 +1,5 @@
 # Domain-specific Topic Model for Knowledge Discovery in Computational and Data-Intensive Scientific Communities
-This implements the algorithms that describe in the paper "Domain-specific Topic Model for Knowledge Discovery in Computational and Data-Intensive Scientific Communities"
+This implements the models and algorithms that describe in the paper "Domain-specific Topic Model for Knowledge Discovery in Computational and Data-Intensive Scientific Communities"
 
 ## Prerequisites
 - Python: 2.7
@@ -7,3 +7,4 @@ This implements the algorithms that describe in the paper "Domain-specific Topic
 
 ## Structure of the code
 
+## Getting Started
