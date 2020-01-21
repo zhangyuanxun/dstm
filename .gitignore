@@ -2,24 +2,9 @@
 .DS_Store
 .idea
 
-# test.py
-test.py
-
 # python c file
 *.pyc
 *.pdf
 *.npy
-
-# add models folder not content
-/dataset/**/*.*
-/output/**/*.*
-/output/*.*
-!/output/*.gitkeep
-!/dataset/**/*.gitkeep
-!/dataset/**/dblp_profile.json
-!/dataset/**/ignore_nsf_grant_id.json
-
-# test folder
-/test/*.*
 
 # large file
