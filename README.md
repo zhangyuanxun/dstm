@@ -49,9 +49,11 @@ README.md
     - bio/   : contains raw and processed datasets for bioinformatics domains
     - neuro/ : contains raw and processed datasets for neuroscience domains
 - model/   : implements a few topic model algorithms for this project
-    - dstm.py  : implements the our domain-specific topic model
+    - dstm.py  : implements the our domain-specific topic model algorithm
     - lda.py   : implements state-of-the-art algorithm [Latent Dirichlet Allocation (LDA)](http://jmlr.org/papers/volume3/blei03a/blei03a.pdf)
     - plsa.py  : implements state-of-the-art algorithm [Probabilistic Latent Semantic Analysis (pLSA)](https://www.iro.umontreal.ca/~nie/IFT6255/Hofmann-UAI99.pdf)
+- data_collector.py: utility to collect data from raw dataset (NSF Grant dataset) or from other websites (Google Scholar）
+
 
 ## Getting Started
 ### Data Collecting
