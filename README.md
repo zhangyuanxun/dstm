@@ -84,19 +84,19 @@ for the model. In our model, we use bag-of-words as our model input. Hence, for 
 (Note, we have already processed the raw datasets based on the current data collections.. it is not necessary to run the data processing scripts unless you have new dataset to process). 
 
 Using the bioinformatics domain as an example, the basic routines for data processing will be,
-- Generating the vocabulary for bioinformatics domain
+- Generating the vocabulary
 ```
 python data_processor.py --domain bio --operation vocabulary
 ```
-- Generating the bag-of-words for bioinformatics domain
+- Generating the bag-of-words
 ```
 python data_processor.py --domain bio --operation bag-of-words
 ```
-- Generating the tool-to-doc for bioinformatics domain
+- Generating the tool-to-doc
 ```
 python data_processor.py --domain bio --operation tool
 ```
-- Generating the dataset-to-doc for bioinformatics domain
+- Generating the dataset-to-doc
 ```
 python data_processor.py --domain bio --operation dataset
 ```
