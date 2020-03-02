@@ -86,8 +86,19 @@ for the model. In our model, we use bag-of-words as our model input. Hence, for 
 Using the bioinformatics domain as an example, the basic routines for data processing will be,
 - Generating the vocabulary for bioinformatics domain
 ```
-python data_processor.py --domain bio 
+python data_processor.py --domain bio --operation vocabulary
 ```
-
+- Generating the bag-of-words for bioinformatics domain
+```
+python data_processor.py --domain bio --operation bag-of-words
+```
+- Generating the tool-to-doc for bioinformatics domain
+```
+python data_processor.py --domain bio --operation tool
+```
+- Generating the dataset-to-doc for bioinformatics domain
+```
+python data_processor.py --domain bio --operation dataset
+```
 ## Citations
 
