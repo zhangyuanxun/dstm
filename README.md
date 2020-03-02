@@ -102,7 +102,7 @@ python data_processor.py --domain bio --operation dataset
 ```
 
 ### Domain-sepcific Topic Model Training
-THe DSTM is probalisitic graphical model with latent variables. In our model, the latent variables are used to describe the patterns among research topics, tools, and datasets, which are unkown to us in the beginning. The goal of to model trainng is to infer these latent variables. And, we use Gibbs sampling algorithm to infer these latent patterns. 
+THe DSTM is probalisitic graphical model with latent variables. In our model, the latent variables are used to describe the patterns among research topics, tools, and datasets, which are unkown to us in the beginning. The goal of to model trainng is to infer these latent variables. And, we use Gibbs sampling algorithm to infer these latent patterns.
 
 ## Citations
 
