@@ -33,6 +33,8 @@ model/
 output/
 README.md
 text_utils.py
+data_collector.py
+data_processor.py
 ```
 - collector/ : contains scripts for to extract papers from online scientific journals archives
     - bio/
@@ -53,7 +55,8 @@ text_utils.py
     - dstm.py  : implements the our domain-specific topic model algorithm
     - lda.py   : implements state-of-the-art algorithm [Latent Dirichlet Allocation (LDA)](http://jmlr.org/papers/volume3/blei03a/blei03a.pdf)
     - plsa.py  : implements state-of-the-art algorithm [Probabilistic Latent Semantic Analysis (pLSA)](https://www.iro.umontreal.ca/~nie/IFT6255/Hofmann-UAI99.pdf)
-- data_collector.py: utility functions to collect data from raw dataset (NSF Grant dataset) or from other websites (Google Scholar）
+- data_collector.py: utility functions to collect data from raw dataset (NSF Grant dataset) or from other websites (Google Scholar)
+- data_processor.py: utlity functions to transform raw dataset into required data format (such as bag-of-words) by our model. 
 - text_utils.py : utility functions for text processing
 
 ## Getting Started
@@ -76,7 +79,15 @@ python data_collector.py --domain neuro
 
 ### Data Processing
 During the data collecting, you have collected paper texts from journals. In the data processing stage, you need to process raw text datasets for suitable dataset format
-for the model. In our model, we use bag-of-words as our model input. Hence, for data processing, we need to transform the raw text format into bag-of-words format. In addtion, in data processing stage, we also need to generate the whole vocabulary, tool-to-doc, and dataset-to-doc tables. 
+for the model. In our model, we use bag-of-words as our model input. Hence, for data processing, we need to transform the raw text format into bag-of-words format. In addtion, in data processing stage, we also need to generate the whole vocabulary, tool-to-doc, and dataset-to-doc tables. And the last thing, you need to generate vocabulary firstly before generating bag-of-words, tool-to-doc, or dataset-to-doc tables.
+
+(Note, we have already processed the raw datasets based on the current data collections.. it is not necessary to run the data processing scripts unless you have new dataset to process). 
+
+Using the bioinformatics domain as an example, the basic routines for data processing will be,
+- Generating the vocabulary for bioinformatics domain
+```
+python data_processor.py --domain bio 
+```
 
 ## Citations
 
