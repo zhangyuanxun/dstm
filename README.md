@@ -62,7 +62,7 @@ In the data collecting stage, we collect three types of the dataset: a) papers, 
 from two domains: bioinformatics, neuroscience; b) tools, we collect types of tools; c) datasets, we collect types of datasets. To collect papers, we 
 provide scripts to automatically collect papers from websites; to collect tools or datasets, we need some domain knowledge to collect relevant datasets manually.
  
-(Note, we have already collected the relevant dataset. it is not necessary to run the data collecting script unless you want to collect new dataset from new domain). 
+(Note, we have already collected the relevant dataset. it is not necessary to run the data collecting scripts unless you want to collect new dataset from new domain). 
 - Collect papers from bioinformatics domain
 ```
 python data_collector.py --domain bio
@@ -76,7 +76,7 @@ python data_collector.py --domain neuro
 
 ### Data Processing
 During the data collecting, you have collected paper texts from journals. In the data processing stage, you need to process raw text datasets for suitable dataset format
-for the model. In our model, we use bag-of-words as our model input. Hence, for data processing, we need to transform the raw text format into bag-of-words format. In addtion, in data processing stage, we also need to generate the whole vocabulary, tool-to-doc, and dataset-to-doc tables.
+for the model. In our model, we use bag-of-words as our model input. Hence, for data processing, we need to transform the raw text format into bag-of-words format. In addtion, in data processing stage, we also need to generate the whole vocabulary, tool-to-doc, and dataset-to-doc tables. 
 
 ## Citations
 
