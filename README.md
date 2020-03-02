@@ -32,6 +32,7 @@ model/
     plsa.py
 output/
 README.md
+text_utils.py
 ```
 - collector/ : contains scripts for to extract papers from online scientific journals archives
     - bio/
@@ -52,15 +53,16 @@ README.md
     - dstm.py  : implements the our domain-specific topic model algorithm
     - lda.py   : implements state-of-the-art algorithm [Latent Dirichlet Allocation (LDA)](http://jmlr.org/papers/volume3/blei03a/blei03a.pdf)
     - plsa.py  : implements state-of-the-art algorithm [Probabilistic Latent Semantic Analysis (pLSA)](https://www.iro.umontreal.ca/~nie/IFT6255/Hofmann-UAI99.pdf)
-- data_collector.py: utility to collect data from raw dataset (NSF Grant dataset) or from other websites (Google Scholar）
-
+- data_collector.py: utility functions to collect data from raw dataset (NSF Grant dataset) or from other websites (Google Scholar）
+- text_utils.py : utility functions for text processing
 
 ## Getting Started
 ### Data Collecting
-In the data collecting stage, we collect three types of the dataset: a)papers,  we collect papers from specific scientific domains. In current project, we collect papers 
-from two domains: bioinformatics, neuroscience; b) tools, we collect types of tools 
+In the data collecting stage, we collect three types of the dataset: a) papers,  we collect papers from specific scientific domains. In current project, we collect papers 
+from two domains: bioinformatics, neuroscience; b) tools, we collect types of tools; c) datasets, we collect types of datasets. To collect papers, we 
+provide scripts to automatically collect papers from websites; to collect tools or datasets, we need some domain knowledge to collect relevant datasets manually.
  
-(Note, we have already collected the relevant dataset. it is not necessary to run the data collecting script unless you want to collect new dataset). 
+(Note, we have already collected the relevant dataset. it is not necessary to run the data collecting script unless you want to collect new dataset from new domain). 
 - Collect papers from bioinformatics domain
 ```
 python data_collector.py --domain bio
@@ -69,5 +71,12 @@ python data_collector.py --domain bio
 ```
 python data_collector.py --domain neuro
 ```
+- Tips: Collect papers from other domains and other scripts
+    - You need to mimic the scripts (such as bmc_bio_collector.py, bmc_genomics_collector.py) under the folders to extract text from websites. 
 
+### Data Processing
+During the data collecting, you have collected paper texts from journals. In the data processing stage, you need to process raw text datasets for suitable dataset format
+for the model. In our model, we use bag-of-words as model input. Hence, 
+
+## Citations
 
