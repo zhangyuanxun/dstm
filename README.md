@@ -113,7 +113,10 @@ the patterns among research topics, tools, and datasets, which are unknown to us
 estimation is to estimate these latent variables. In the model, we use Gibbs sampling algorithm to infer these latent 
 patterns. 
 
-Before staring parameters estimation, you need to define 
+Before staring parameters estimation, you need to define some hyper-paratemers for running the problem,
+- number of topics (num_topcis): it defines the number of topcis you want to capture from your corpus. We usually choose the value from 50 to 200 for both bioinformatics and neuroscience domains
+
+such as the number of topics (num_topics), the number of iterations (num_iterations). For the number of topics, w; for the number of iterations, we usually choose 50 to 100. 
 
 
 ### Model Inference
