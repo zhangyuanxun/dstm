@@ -121,8 +121,10 @@ Before staring parameters estimation, you need to set up some parameters for run
 - model evaluation (evaluate): it specifies whether model evaluation or not.
 - save model file (save): it choose whether to save the model file or not.
 
-Typically, you need to set up the four key parameters(data_source, num_topcis, num_iterations, mode) and keep the rest of parameters as the default. For example, 
-
+Typically, you need to set up the four key parameters(data_source, num_topcis, num_iterations, mode) and keep the rest of parameters as the default. For example, if you train the model for demostratioin using corpus from bioinformatics domain from beginning.
+```
+python run_dstp.py --data_source bio --mode demo --run_mode start --num_iterations 50 --num_topics 100
+```
 
 
 
