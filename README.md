@@ -125,8 +125,11 @@ Typically, you need to set up the four key parameters(data_source, num_topcis, n
 ```
 python run_dstp.py --data_source bio --mode demo --run_mode start --num_iterations 50 --num_topics 100
 ```
-
-
+Similarly, if you train the model using corpus from neuroscience domain from beginning.
+```
+python run_dstp.py --data_source neuro --mode demo --run_mode start --num_iterations 50 --num_topics 100
+```
+After finishing training, our program will output the model path for future use. 
 
 ### Model Inference
 
