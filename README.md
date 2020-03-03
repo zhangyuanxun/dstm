@@ -109,17 +109,20 @@ python data_processor.py --domain bio --operation dataset
 ### Model Parameters Estimation
 The DSTM is a probabilistic graphical model with latent variables. In our model, the latent variables are used to describe the patterns among research topics, tools, and datasets, which are unknown to us in the beginning. The goal of parameters estimation is to estimate these latent variables. In the model, we use the Gibbs sampling algorithm to infer these latent patterns. 
 
-Before staring parameters estimation, you need to set some parameters for running the problem,
+Before staring parameters estimation, you need to set up some parameters for running the program,
 - the type of data source (data_source): it defines the type of data source you need to train your model, such as neuroscience(neuro), bioinformatics(bio). 
 - the number of topics (num_topcis): it defines the number of topics you want to capture from your corpus. We usually choose the value from 50 to 200 for both bioinformatics and neuroscience domains.
 - the number of iterations (num_iterations): it defines the number of iterations (epochs) your program will run. We usually choose the value from 50 to 100. 
-- the mode (mode): it defines the mode to train the model, for example, the estimation mode (est) uses a certain ratio (such as 80%) of dataset for parameter estimation and rest of dataset for evaluation; the inference mode (inf) is used to infer the probability of new dataset after parameter esitmation. 
+- the mode (mode): it defines the mode to train the model, for example, the estimation mode (est) uses a certain ratio (such as 80%) of dataset for parameter estimation and rest of dataset for evaluation; the inference mode (inf) is used to infer the probability of new dataset after parameter esitmation; and the demo mode (demo) is used to learn parameters for model demostration, which uses all datasets. 
 - the run mode of program (run_mode): it defines the running mode to run the program. Our program supports two modes, which allows you to run the program from begining, or run the program continously. 
 - the seed (seed): it is used by the random number generator, which can help you to re-produce the exprimental results. 
 - verbose (verbose): it shows performance debug information.
 - the model output folder (model_folder): it specifies the model folder name for running continuously. If the program is running from begining, it will create a model by default.
 - model evaluation (evaluate): it specifies whether model evaluation or not.
 - save model file (save): it choose whether to save the model file or not.
+
+Typically, you need to set up the four key parameters(data_source, num_topcis, num_iterations, mode) and keep the rest of parameters as the default. For example, 
+
 
 
 
