@@ -115,7 +115,11 @@ Before staring parameters estimation, you need to set some parameters for runnin
 - the number of iterations (num_iterations): it defines the number of iterations (epochs) your program will run. We usually choose the value from 50 to 100. 
 - the mode (mode): it defines the mode to train the model, for example, the estimation mode (est) uses a certain ratio (such as 80%) of dataset for parameter estimation and rest of dataset for evaluation; the inference mode (inf) uses 
 - the run mode of program (run_mode): it defines the running mode to run the program. Our program supports two modes, which allows you to run the program from begining, or run the program continously. 
-- the seed (seed): it is used by the random number generator, which can help you re-produce the exprimental results. 
+- the seed (seed): it is used by the random number generator, which can help you to re-produce the exprimental results. 
+- verbose (verbose): it shows performance debug information.
+- the model output folder (model_folder): it specifies the model folder name for running continuously. If the program is running from start it will create a model by default.
+- model evaluation (evaluate): it specifies whether model evaluation or not.
+- save model file (save): it choose whether to save model or not.
 
 
 
