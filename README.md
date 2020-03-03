@@ -116,7 +116,7 @@ THe DSTM is probalisitic graphical model with latent variables. In our model, th
 
 ## Citations
 ```
-@INPROCEEDINGS{8622309,
+@INPROCEEDINGS{dstm2018zhang,
 author={Y. {Zhang} and P. {Calyam} and T. {Joshi} and S. {Nair} and D. {Xu}},
 booktitle={2018 IEEE International Conference on Big Data (Big Data)},
 title={Domain-specific Topic Model for Knowledge Discovery through Conversational Agents in Data Intensive Scientific Communities},
