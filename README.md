@@ -31,10 +31,13 @@ model/
     lda.py
     plsa.py
 output/
-README.md
-text_utils.py
 data_collector.py
 data_processor.py
+README.md
+run_dstm.py
+run_lda.py
+run_plsa.py
+text_utils.py
 ```
 - collector/ : contains scripts for to extract papers from online scientific journals archives
     - bio/
@@ -56,7 +59,10 @@ data_processor.py
     - lda.py   : implements state-of-the-art algorithm [Latent Dirichlet Allocation (LDA)](http://jmlr.org/papers/volume3/blei03a/blei03a.pdf)
     - plsa.py  : implements state-of-the-art algorithm [Probabilistic Latent Semantic Analysis (pLSA)](https://www.iro.umontreal.ca/~nie/IFT6255/Hofmann-UAI99.pdf)
 - data_collector.py: utility functions to collect data from raw dataset (NSF Grant dataset) or from other websites (Google Scholar)
-- data_processor.py: utlity functions to transform raw dataset into required data format (such as bag-of-words) by our model. 
+- data_processor.py: utility functions to transform raw dataset into required data format (such as bag-of-words) by our model. 
+- run_dstm.py: main file to run DSTM model, which includes model parameter estimation and inference. 
+- run_lda.py: main file to run state-of-the-art LDA model, which includes model parameter estimation and inference. 
+- run_plsa.py: main file to run state-of-the-art pLSA model, which includes model parameter estimation and inference. 
 - text_utils.py : utility functions for text processing
 
 ## Getting Started
@@ -102,14 +108,19 @@ python data_processor.py --domain bio --operation dataset
 ```
 
 ### Model Parameters Estimation
-THe DSTM is probalisitic graphical model with latent variables. In our model, the latent variables are used to describe the patterns among research topics, tools, and datasets, which are unkown to us in the beginning. The goal of parameters estimation is to estimate these latent variables. To achieve this, we use Gibbs sampling algorithm to infer these latent patterns. 
+THe DSTM is probabilistic graphical model with latent variables. In our model, the latent variables are used to describe 
+the patterns among research topics, tools, and datasets, which are unknown to us in the beginning. The goal of parameters 
+estimation is to estimate these latent variables. In the model, we use Gibbs sampling algorithm to infer these latent 
+patterns. 
+
+Before staring parameters estimation, you need to define 
 
 
 ### Model Inference
 
 
-## Visulization
-Visulization or model representation are very important in unsupversied learning, which can help us to understand the latent patterns of our problem, and evaluate the feasibility of the model.
+## Visualization
+Visualization or model representation are very important in unsupversied learning, which can help us to understand the latent patterns of our problem, and evaluate the feasibility of the model.
 
 After model parameter estimation, the model files will be generated. 
 
