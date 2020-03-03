@@ -102,14 +102,14 @@ python data_processor.py --domain bio --operation dataset
 ```
 
 ### Model Parameters Estimation
-THe DSTM is probalisitic graphical model with latent variables. In our model, the latent variables are used to describe the patterns among research topics, tools, and datasets, which are unkown to us in the beginning. The goal of parameters estimation is to estimate these latent variables. And, we use Gibbs sampling algorithm to infer these latent patterns. 
+THe DSTM is probalisitic graphical model with latent variables. In our model, the latent variables are used to describe the patterns among research topics, tools, and datasets, which are unkown to us in the beginning. The goal of parameters estimation is to estimate these latent variables. To achieve this, we use Gibbs sampling algorithm to infer these latent patterns. 
 
 
 ### Model Inference
 
 
 ## Visulization
-
+Visulization or model representation are very important in unsupversied learning, which can help us to understand the latent patterns of our problem. 
 
 ## Model APIs
 
