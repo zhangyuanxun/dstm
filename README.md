@@ -67,8 +67,7 @@ text_utils.py
 
 ## Getting Started
 ### Data Collecting
-In the data collecting stage, we collect three types of the dataset: a) papers,  we collect papers from specific scientific domains. In current project, we collect papers 
-from two domains: bioinformatics, neuroscience; b) tools, we collect types of tools; c) datasets, we collect types of datasets. To collect papers, we 
+In the data collecting stage, we collect three types of the dataset: a) papers,  we collect papers from specific scientific domains. In the current project, we collect papers from two domains: bioinformatics, neuroscience; b) tools, we collect types of tools; c) datasets, we collect types of datasets. To collect papers, we 
 provide scripts to automatically collect papers from websites; to collect tools or datasets, we need some domain knowledge to collect relevant datasets manually.
  
 (Note, we have already collected the relevant dataset. it is not necessary to run the data collecting scripts unless you want to collect new dataset from new domain). 
@@ -84,10 +83,10 @@ python data_collector.py --domain neuro
     - You need to mimic the scripts (such as bmc_bio_collector.py, bmc_genomics_collector.py) under the folders to extract text from websites. 
 
 ### Data Processing
-During the data collecting, you have collected paper texts from journals. In the data processing stage, you need to process raw text datasets for suitable dataset format
-for the model. In our model, we use bag-of-words as our model input. Hence, for data processing, we need to transform the raw text format into bag-of-words format. In addtion, in data processing stage, we also need to generate the whole vocabulary, tool-to-doc, and dataset-to-doc tables. And the last thing, you need to generate vocabulary firstly before generating bag-of-words, tool-to-doc, or dataset-to-doc tables.
+During the data collecting, you have collected paper texts from journals. In the data processing stage, you need to process raw text datasets for a suitable dataset format
+for the model. In our model, we use bag-of-words as our model input. Hence, for data processing, we need to transform the raw text format into the bag-of-words format. Besides, in the data processing stage, we also need to generate the whole vocabulary, tool-to-doc, and dataset-to-doc tables. And the last thing, you need to generate vocabulary firstly before generating bag-of-words, tool-to-doc, or dataset-to-doc tables.
 
-(Note, we have already processed the raw datasets based on the current data collections.. it is not necessary to run the data processing scripts unless you have new dataset to process). 
+(Note, we have already processed the raw datasets based on the current data collections.. it is not necessary to run the data processing scripts unless you have a new dataset to process). 
 
 Using the bioinformatics domain as an example, the basic routines for data processing will be,
 - Generating the vocabulary (this command should be run at first)
@@ -108,15 +107,11 @@ python data_processor.py --domain bio --operation dataset
 ```
 
 ### Model Parameters Estimation
-THe DSTM is probabilistic graphical model with latent variables. In our model, the latent variables are used to describe 
-the patterns among research topics, tools, and datasets, which are unknown to us in the beginning. The goal of parameters 
-estimation is to estimate these latent variables. In the model, we use Gibbs sampling algorithm to infer these latent 
-patterns. 
+The DSTM is a probabilistic graphical model with latent variables. In our model, the latent variables are used to describe the patterns among research topics, tools, and datasets, which are unknown to us in the beginning. The goal of parameters estimation is to estimate these latent variables. In the model, we use the Gibbs sampling algorithm to infer these latent patterns. 
 
-Before staring parameters estimation, you need to define some hyper-paratemers for running the problem,
-- number of topics (num_topcis): it defines the number of topcis you want to capture from your corpus. We usually choose the value from 50 to 200 for both bioinformatics and neuroscience domains
-
-such as the number of topics (num_topics), the number of iterations (num_iterations). For the number of topics, w; for the number of iterations, we usually choose 50 to 100. 
+Before staring parameters estimation, you need to set some parameters for running the problem,
+- number of topics (num_topcis): it defines the number of topics you want to capture from your corpus. We usually choose the value from 50 to 200 for both bioinformatics and neuroscience domains.
+- number of iterations (num_iterations): it defines the number of iterations (epochs) your program will run. We usually choose the value from 50 to 100. 
 
 
 ### Model Inference
