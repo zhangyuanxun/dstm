@@ -109,7 +109,7 @@ THe DSTM is probalisitic graphical model with latent variables. In our model, th
 
 
 ## Visulization
-Visulization or model representation are very important in unsupversied learning, which can help us to understand the latent patterns of our problem. 
+Visulization or model representation are very important in unsupversied learning, which can help us to understand the latent patterns of our problem, and evaluate the feasibility 
 
 ## Model APIs
 
