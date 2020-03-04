@@ -110,7 +110,7 @@ python data_processor.py --domain bio --operation dataset
 The DSTM is a probabilistic graphical model with latent variables. In our model, the latent variables are used to describe the patterns among research topics, tools, and datasets, which are unknown to us in the beginning. The goal of parameters estimation is to estimate these latent variables. In the model, we use the Gibbs sampling algorithm to infer these latent patterns. 
 
 Before staring parameters estimation, you need to set up some parameters for running the program,
-- the type of data source (data_source): it defines the type of data source you need to train your model, such as neuroscience(neuro), bioinformatics(bio). 
+- the type of data source (data_source): it defines the type of data source you need to train your model, such as neuroscience (neuro), bioinformatics (bio). 
 - the number of topics (num_topcis): it defines the number of topics you want to capture from your corpus. We usually choose the value from 50 to 200 for both bioinformatics and neuroscience domains.
 - the number of iterations (num_iterations): it defines the number of iterations (epochs) your program will run. We usually choose the value from 50 to 100. 
 - the mode (mode): it defines the mode to train the model, for example, the estimation mode (est) uses a certain ratio (such as 80%) of dataset for parameter estimation and rest of dataset for evaluation; the inference mode (inf) is used to infer the probability of new dataset after parameter esitmation; and the demo mode (demo) is used to learn parameters for model demostration, which uses all datasets. 
