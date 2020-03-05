@@ -62,6 +62,9 @@ text_utils.py
     - dstm.py  : implements the our domain-specific topic model algorithm
     - lda.py   : implements state-of-the-art algorithm [Latent Dirichlet Allocation (LDA)](http://jmlr.org/papers/volume3/blei03a/blei03a.pdf)
     - plsa.py  : implements state-of-the-art algorithm [Probabilistic Latent Semantic Analysis (pLSA)](https://www.iro.umontreal.ca/~nie/IFT6255/Hofmann-UAI99.pdf)
+- output/  : the trained model files will be automatically saved in this folder
+    - bio_base_model : pre-trained bioinformatics model file
+    - neuro_base_model: pre-trained neuroscience model file
 - data_collector.py: utility functions to collect data from raw dataset (NSF Grant dataset) or from other websites (Google Scholar)
 - data_processor.py: utility functions to transform raw dataset into required data format (such as bag-of-words) by our model. 
 - run_dstm.py: main file to run DSTM model, which includes model parameter estimation and inference. 
