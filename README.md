@@ -152,7 +152,7 @@ Model inference is to infer parameters of new dataset based on the trained model
 - Run parameters estimation (as described above) based on dataset from particular domain, and save the model file.
 - Collecting new dataset from same domain, and process using the scripts we provided. Then, you can run the inference algorithm command as below. 
 ```
-python run_dstm.py --data_source bio --mode demo --run_mode start --num_iterations 50 --num_topics 50 --save yes
+python run_dstm.py --data_source bio --mode inf --run_mode start --num_iterations 50 --num_topics 50 --save yes
 ```
 
 ## Visualization
