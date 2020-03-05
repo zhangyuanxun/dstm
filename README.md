@@ -149,8 +149,11 @@ python run_plsa.py --data_source bio --mode demo --num_iterations 50 --num_topic
 
 ### Model Inference
 Model inference is to infer parameters of new dataset based on the trained model. The basic step to use model inference will be,
-- Run parameters estimation (as described above) based on dataset from particular domain, and save the model file.
-- Collecting new dataset from same domain, and process using the scripts we provided. Then, you can run the inference algorithm command as below. 
+- Run model parameters estimation (as described above) based on dataset from particular domain using esitmiation mode (est), and save the model file. Our program will automatically split the dataset into estimation part and inference part, and choose estimation part for trainning. 
+```
+python run_dstm.py --data_source bio --mode est --run_mode start --num_iterations 50 --num_topics 70 --save yes
+```
+- Then, run  
 ```
 python run_dstm.py --data_source bio --mode inf --run_mode start --num_iterations 50 --num_topics 50 --save yes
 ```
