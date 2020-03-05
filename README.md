@@ -145,9 +145,15 @@ Similarly, you can also train state-of-the-art model (PLSA, LDA) using similar c
 python run_lda.py --data_source bio --mode demo --run_mode start --num_iterations 50 --num_topics 50 --save yes
 python run_plsa.py --data_source bio --mode demo --num_iterations 50 --num_topics 50 --save yes
 ```
+(Note, I haven't optimized our program. So, it will be slow to train the model. In addition, for each domain, we have provided trained model under the outpu/ folder, you can directly use it.) 
 
 ### Model Inference
-
+Model inference is to infer parameters of new dataset based on the trained model. The basic step to use model inference will be,
+- Run parameters estimation (as described above) based on dataset from particular domain, and save the model file.
+- Collecting new dataset from same domain, and process using the scripts we provided. Then, you can run the inference algorithm command as below. 
+```
+python run_dstm.py --data_source bio --mode demo --run_mode start --num_iterations 50 --num_topics 50 --save yes
+```
 
 ## Visualization
 Visualization or model representation are very important in unsupervised learning, which can help us to understand the latent patterns of our problem, and evaluate the feasibility of the model.
