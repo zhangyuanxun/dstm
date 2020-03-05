@@ -1,0 +1,1 @@
+{"verbose": 0, "beta": 0.1, "data_source": "bio", "eta0": 3.0, "num_topics": 50, "alpha": 1.0, "num_iterations": 50, "seed": 7, "eta1": 2.0}
