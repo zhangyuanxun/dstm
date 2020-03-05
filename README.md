@@ -26,6 +26,8 @@ dataset/
         *.*
     neuro/
         *.*
+    common_tools.py
+    stopwords.txt
 model/
     dstm.py
     lda.py
@@ -54,6 +56,8 @@ text_utils.py
 - dataset/ : contains all the data include raw and processed of the project
     - bio/   : contains raw and processed datasets for bioinformatics domains
     - neuro/ : contains raw and processed datasets for neuroscience domains
+    common_tools.py  : list of the common tools (such as python, c++), which are not considered by our model
+    stopwords.txt  : list of the stop words
 - model/   : implements core topic model algorithms for this project
     - dstm.py  : implements the our domain-specific topic model algorithm
     - lda.py   : implements state-of-the-art algorithm [Latent Dirichlet Allocation (LDA)](http://jmlr.org/papers/volume3/blei03a/blei03a.pdf)
@@ -121,15 +125,15 @@ Before staring parameters estimation, you need to set up some parameters for run
 - model evaluation (evaluate): it specifies whether model evaluation or not.
 - save model file (save): it choose whether to save the model file or not.
 
-Typically, you need to set up the four key parameters(data_source, num_topcis, num_iterations, mode) and keep the rest of parameters as the default. For example, if you train the model for demostratioin using corpus from bioinformatics domain from beginning.
+Typically, you need to set up the four key parameters(data_source, num_topcis, num_iterations, mode, save) and keep the rest of parameters as the default. For example, if you train the model for demostratioin using corpus from bioinformatics domain from beginning.
 ```
-python run_dstp.py --data_source bio --mode demo --run_mode start --num_iterations 50 --num_topics 100
+python run_dstm.py --data_source bio --mode demo --run_mode start --num_iterations 50 --num_topics 100 --save yes
 ```
 Similarly, if you train the model using corpus from neuroscience domain from beginning.
 ```
-python run_dstp.py --data_source neuro --mode demo --run_mode start --num_iterations 50 --num_topics 100
+python run_dstm.py --data_source neuro --mode demo --run_mode start --num_iterations 50 --num_topics 100 --save yes
 ```
-After finishing training, our program will output the model path for future use. 
+After finishing training, our program will output the path of model file for future use. 
 
 ### Model Inference
 
