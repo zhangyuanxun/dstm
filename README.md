@@ -33,6 +33,8 @@ model/
     lda.py
     plsa.py
 output/
+    bio_base_model/
+    neuro_base_model/
 data_collector.py
 data_processor.py
 README.md
@@ -138,12 +140,17 @@ python run_dstm.py --data_source neuro --mode demo --run_mode start --num_iterat
 ```
 After finishing training, our program will output the path of model file for future use. 
 
+Similarly, you can also train state-of-the-art model (PLSA, LDA) using similar commands.
+```
+python run_lda.py --data_source bio --mode demo --run_mode start --num_iterations 50 --num_topics 50 --save yes
+python run_plsa.py --data_source bio --mode demo --num_iterations 50 --num_topics 50 --save yes
+```
 
 ### Model Inference
 
 
 ## Visualization
-Visualization or model representation are very important in unsupversied learning, which can help us to understand the latent patterns of our problem, and evaluate the feasibility of the model.
+Visualization or model representation are very important in unsupervised learning, which can help us to understand the latent patterns of our problem, and evaluate the feasibility of the model.
 
 After model parameter estimation, the model files will be generated. 
 
