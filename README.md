@@ -127,13 +127,14 @@ Before staring parameters estimation, you need to set up some parameters for run
 
 Typically, you need to set up the four key parameters(data_source, num_topcis, num_iterations, mode, save) and keep the rest of parameters as the default. For example, if you train the model for demostratioin using corpus from bioinformatics domain from beginning.
 ```
-python run_dstm.py --data_source bio --mode demo --run_mode start --num_iterations 50 --num_topics 100 --save yes
+python run_dstm.py --data_source bio --mode demo --run_mode start --num_iterations 50 --num_topics 50 --save yes
 ```
 Similarly, if you train the model using corpus from neuroscience domain from beginning.
 ```
-python run_dstm.py --data_source neuro --mode demo --run_mode start --num_iterations 50 --num_topics 100 --save yes
+python run_dstm.py --data_source neuro --mode demo --run_mode start --num_iterations 50 --num_topics 70 --save yes
 ```
 After finishing training, our program will output the path of model file for future use. 
+
 
 ### Model Inference
 
