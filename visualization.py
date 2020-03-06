@@ -11,10 +11,10 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Description the Command Line of DSTP Model')
     parser.add_argument('--data_source', help='Select data source: neuroscience(neuro), bioinformatics(bio), '
                                               '(default = %(default)s)', default='bio', choices=['bio', 'neuro'])
-    parser.add_argument('--operation', default='tables', choices=['tables'],
-                        help="Provide operation name for visualize (tables)")
+    parser.add_argument('--type', default='table', choices=['table'],
+                        help="Provide type of visualization, such as table")
     parser.add_argument('--topk', help='Number of top K terms for visualization (default = %(default)s)', type=int,
-                        default=10, choices=range(1, 100), metavar='(1, ..., 100)')
+                        default=10, choices=range(1, 101), metavar='(1, ..., 101)')
     parser.add_argument('--model_folder', help='Specify the model folder name.', type=str)
 
 
@@ -49,6 +49,7 @@ def dstp_topics_printer(args):
     vocabs = inputs['vocab']
     tools = inputs['tools']
     datasets = inputs['datasets']
+    topk = args.topk
 
     # load model file
     folder_name = MODELS_FOLDER + args.model_folder + '/'
@@ -67,16 +68,16 @@ def dstp_topics_printer(args):
     num_topics = kw.shape[0]
 
     for k in xrange(num_topics):
-        kw_idx = np.argsort(est_kw[k, :])[::-1][:NUM_PRINT_TERMS]
+        kw_idx = np.argsort(est_kw[k, :])[::-1][:topk]
 
         kt_idx = np.argsort(est_kt[k, :])[::-1]
-        kt_idx = kt_idx[kt_idx < len(tools)][:NUM_PRINT_TERMS]
+        kt_idx = kt_idx[kt_idx < len(tools)][:topk]
 
         ks_idx = np.argsort(est_ks[k, :])[::-1]
-        ks_idx = ks_idx[ks_idx < len(datasets)][:NUM_PRINT_TERMS]
+        ks_idx = ks_idx[ks_idx < len(datasets)][:topk]
 
         print 'topic %d:' % k
-        for x in xrange(NUM_PRINT_TERMS):
+        for x in xrange(topk):
             print '%20s  \t---\t  %.4f' % (vocabs[kw_idx[x]], est_kw[k, kw_idx[x]]) + '%20s  \t---\t  %.4f' % (
             tools[kt_idx[x]], est_kt[k, kt_idx[x]]) + '%20s  \t---\t  %.4f' % (
                   datasets[ks_idx[x]], est_ks[k, ks_idx[x]])
@@ -87,6 +88,6 @@ def dstp_topics_printer(args):
 if __name__ == "__main__":
     args = parse_args()
 
-    if args.operation == 'tables':
+    if args.type == 'table':
         dstp_topics_printer(args)
 

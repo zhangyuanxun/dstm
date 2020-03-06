@@ -163,11 +163,109 @@ Model visualization or model representation is very important in unsupervised le
 
 After the model parameter estimation, the model files will be generated. Then, you can explore our model by using the visualization interfaces we provided. We have provided the pre-trained model for each domain (bioinformatics and neuroscience). 
 
-- visualize the relationship between research topics, research tools, and research datasets in tables. For example, you visualize the relationship in bioinformatics domain based on a pretrained model. Here we use the a pretrained model provided in our repo under the folder (\output).
+- visualize the relationship between research topics, research tools, and research datasets in tables. For example, you visualize the relationship in the bioinformatics domain based on a pre-trained model. Here we use the pre-trained model provided in our repo under the folder (\output).
+And, the parameter (topK) is to describe the top K terms to be presented.
 ```
-python visualization.py --data_source bio --model_folder bio_base_model
+python visualization.py --data_source bio --topk 10 --model_folder bio_base_model
+```
+If anything goes well, you can get the 50 research topics and their relationships among research topics, research tools, and research datasets as below (Here, I list three topics.)
+```
+topic 0:
+             protein    ---       0.0359              matlab    ---       0.6719                mrna    ---       0.3894
+               state    ---       0.0318             Gromacs    ---       0.2117               mirna    ---       0.1380
+            dynamics    ---       0.0291               BLAST    ---       0.0125                 plb    ---       0.0918
+              single    ---       0.0133           clustalw2    ---       0.0111               mtdna    ---       0.0903
+          activation    ---       0.0130                pfam    ---       0.0090                tcga    ---       0.0576
+             complex    ---       0.0102             mercury    ---       0.0085              rnaseq    ---       0.0369
+            proteins    ---       0.0093            Autodock    ---       0.0079               sirna    ---       0.0329
+            involved    ---       0.0086              Bowtie    ---       0.0067                hmec    ---       0.0314
+                 new    ---       0.0085             clustal    ---       0.0054        metabolomics    ---       0.0297
+           mechanism    ---       0.0083               Glide    ---       0.0044            chipqpcr    ---       0.0186
+
+
+topic 1:
+               model    ---       0.0353              matlab    ---       0.7495                mrna    ---       0.4373
+                time    ---       0.0246                 dss    ---       0.0909               mirna    ---       0.1212
+         probability    ---       0.0152              MUSCLE    ---       0.0204               mtdna    ---       0.1039
+              number    ---       0.0118                affy    ---       0.0130        metabolomics    ---       0.0957
+            observed    ---       0.0092              glmnet    ---       0.0127              rnaseq    ---       0.0764
+            approach    ---       0.0086               BLAST    ---       0.0111          encodedata    ---       0.0661
+           inference    ---       0.0086              Picard    ---       0.0063                tcga    ---       0.0467
+               rates    ---       0.0078                rfam    ---       0.0060             lncrnas    ---       0.0133
+             studies    ---       0.0076             mercury    ---       0.0059                gdsc    ---       0.0067
+                 low    ---       0.0076                STAR    ---       0.0057                hmec    ---       0.0051
+
+
+topic 2:
+                cell    ---       0.0560              matlab    ---       0.8432               mirna    ---       0.2823
+               cells    ---       0.0217              glmnet    ---       0.0196                mrna    ---       0.2080
+              target    ---       0.0187                 IMP    ---       0.0193          encodedata    ---       0.1162
+              models    ---       0.0177                UCSC    ---       0.0115                tcga    ---       0.0771
+             effects    ---       0.0145           Cufflinks    ---       0.0090              rnaseq    ---       0.0752
+               noise    ---       0.0145             mercury    ---       0.0064        metabolomics    ---       0.0617
+             control    ---       0.0135              Picard    ---       0.0061               mtdna    ---       0.0558
+             results    ---       0.0129               BLAST    ---       0.0051                 hic    ---       0.0295
+          functional    ---       0.0128              tophat    ---       0.0038               sirna    ---       0.0283
+          associated    ---       0.0109             BioMart    ---       0.0036                ccle    ---       0.0179
+
+
+topic 3:
+           different    ---       0.0256              matlab    ---       0.5923                tcga    ---       0.2381
+                time    ---       0.0231               BLAST    ---       0.0406        metabolomics    ---       0.1353
+           potential    ---       0.0177              MUSCLE    ---       0.0287              rnaseq    ---       0.1152
+         differences    ---       0.0146               edgeR    ---       0.0250               mirna    ---       0.1111
+        distribution    ---       0.0146                affy    ---       0.0226               mtdna    ---       0.0884
+             results    ---       0.0143              phylip    ---       0.0207                mrna    ---       0.0804
+          clustering    ---       0.0134                 bwa    ---       0.0180                hmec    ---       0.0796
+          biological    ---       0.0131             clustal    ---       0.0174                 wgs    ---       0.0544
+             studies    ---       0.0131               deseq    ---       0.0174                 hic    ---       0.0194
+          conditions    ---       0.0118              Bowtie    ---       0.0155          encodedata    ---       0.0159
 ```
 
+Similarly, you can visualize the research topics in neuroscience domain as below.
+```
+python visualization.py --data_source neuro --topk 10 --model_folder neuro_base_model
+```
+Then, you will obtain 70 topics in neuroscience domain. (Here, I list three topics.) 
+```
+topic 0:
+             protein    ---       0.0359              matlab    ---       0.6719                mrna    ---       0.3894
+               state    ---       0.0318             Gromacs    ---       0.2117               mirna    ---       0.1380
+            dynamics    ---       0.0291               BLAST    ---       0.0125                 plb    ---       0.0918
+              single    ---       0.0133           clustalw2    ---       0.0111               mtdna    ---       0.0903
+          activation    ---       0.0130                pfam    ---       0.0090                tcga    ---       0.0576
+             complex    ---       0.0102             mercury    ---       0.0085              rnaseq    ---       0.0369
+            proteins    ---       0.0093            Autodock    ---       0.0079               sirna    ---       0.0329
+            involved    ---       0.0086              Bowtie    ---       0.0067                hmec    ---       0.0314
+                 new    ---       0.0085             clustal    ---       0.0054        metabolomics    ---       0.0297
+           mechanism    ---       0.0083               Glide    ---       0.0044            chipqpcr    ---       0.0186
+
+
+topic 1:
+               model    ---       0.0353              matlab    ---       0.7495                mrna    ---       0.4373
+                time    ---       0.0246                 dss    ---       0.0909               mirna    ---       0.1212
+         probability    ---       0.0152              MUSCLE    ---       0.0204               mtdna    ---       0.1039
+              number    ---       0.0118                affy    ---       0.0130        metabolomics    ---       0.0957
+            observed    ---       0.0092              glmnet    ---       0.0127              rnaseq    ---       0.0764
+            approach    ---       0.0086               BLAST    ---       0.0111          encodedata    ---       0.0661
+           inference    ---       0.0086              Picard    ---       0.0063                tcga    ---       0.0467
+               rates    ---       0.0078                rfam    ---       0.0060             lncrnas    ---       0.0133
+             studies    ---       0.0076             mercury    ---       0.0059                gdsc    ---       0.0067
+                 low    ---       0.0076                STAR    ---       0.0057                hmec    ---       0.0051
+
+
+topic 2:
+                cell    ---       0.0560              matlab    ---       0.8432               mirna    ---       0.2823
+               cells    ---       0.0217              glmnet    ---       0.0196                mrna    ---       0.2080
+              target    ---       0.0187                 IMP    ---       0.0193          encodedata    ---       0.1162
+              models    ---       0.0177                UCSC    ---       0.0115                tcga    ---       0.0771
+             effects    ---       0.0145           Cufflinks    ---       0.0090              rnaseq    ---       0.0752
+               noise    ---       0.0145             mercury    ---       0.0064        metabolomics    ---       0.0617
+             control    ---       0.0135              Picard    ---       0.0061               mtdna    ---       0.0558
+             results    ---       0.0129               BLAST    ---       0.0051                 hic    ---       0.0295
+          functional    ---       0.0128              tophat    ---       0.0038               sirna    ---       0.0283
+          associated    ---       0.0109             BioMart    ---       0.0036                ccle    ---       0.0179
+```
 
 - visualize the trend of tools or datasets been investigated by researchers over the last ten years. 
 
