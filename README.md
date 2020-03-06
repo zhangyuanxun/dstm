@@ -167,7 +167,7 @@ After the model parameter estimation, the model files will be generated. Then, y
 
 - visualize the trend of tools or datasets been investigated by researchers over the last ten years. 
 
-- visualize the research topics in 2D-space for fiding similar topics among scientific communities, which could be applied to cross-domain. 
+- visualize the research topics in 2D-space for fiding similar topics among scientific communities, which could be applied to cross-domain recommendationm, or cross-domain knowledge sharing.
 
 
 ## Model APIs
