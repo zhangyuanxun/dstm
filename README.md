@@ -155,7 +155,7 @@ python run_dstm.py --data_source bio --mode est --run_mode start --num_iteration
 ```
 - Then, run the model inference algorithm by changing the mode into inference(inf) and providing the name of model folder.
 ```
-python run_dstm.py --data_source bio --mode inf --model_folder XXXXXX
+python run_dstm.py --data_source bio --mode inf --model_folder <model folder name>
 ```
 
 ## Visualization
