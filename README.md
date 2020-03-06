@@ -207,19 +207,6 @@ topic 2:
              results    ---       0.0129               BLAST    ---       0.0051                 hic    ---       0.0295
           functional    ---       0.0128              tophat    ---       0.0038               sirna    ---       0.0283
           associated    ---       0.0109             BioMart    ---       0.0036                ccle    ---       0.0179
-
-
-topic 3:
-           different    ---       0.0256              matlab    ---       0.5923                tcga    ---       0.2381
-                time    ---       0.0231               BLAST    ---       0.0406        metabolomics    ---       0.1353
-           potential    ---       0.0177              MUSCLE    ---       0.0287              rnaseq    ---       0.1152
-         differences    ---       0.0146               edgeR    ---       0.0250               mirna    ---       0.1111
-        distribution    ---       0.0146                affy    ---       0.0226               mtdna    ---       0.0884
-             results    ---       0.0143              phylip    ---       0.0207                mrna    ---       0.0804
-          clustering    ---       0.0134                 bwa    ---       0.0180                hmec    ---       0.0796
-          biological    ---       0.0131             clustal    ---       0.0174                 wgs    ---       0.0544
-             studies    ---       0.0131               deseq    ---       0.0174                 hic    ---       0.0194
-          conditions    ---       0.0118              Bowtie    ---       0.0155          encodedata    ---       0.0159
 ```
 
 Similarly, you can visualize the research topics in neuroscience domain as below.

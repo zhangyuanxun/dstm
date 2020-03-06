@@ -11,7 +11,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Description the Command Line of DSTP Model')
     parser.add_argument('--data_source', help='Select data source: neuroscience(neuro), bioinformatics(bio), '
                                               '(default = %(default)s)', default='bio', choices=['bio', 'neuro'])
-    parser.add_argument('--type', default='table', choices=['table'],
+    parser.add_argument('--type', default='table', choices=['table', 'trend', 'trend-analysis'],
                         help="Provide type of visualization, such as table")
     parser.add_argument('--topk', help='Number of top K terms for visualization (default = %(default)s)', type=int,
                         default=10, choices=range(1, 101), metavar='(1, ..., 101)')
