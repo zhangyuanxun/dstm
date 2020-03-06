@@ -163,11 +163,15 @@ Model visualization or model representation is very important in unsupervised le
 
 After the model parameter estimation, the model files will be generated. Then, you can explore our model by using the visualization interfaces we provided. We have provided the pre-trained model for each domain (bioinformatics and neuroscience). 
 
-- visualize the relationship between research topics, research tools, and research datasets. 
+- visualize the relationship between research topics, research tools, and research datasets in tables. For example, you visualize the relationship in bioinformatics domain based on a pretrained model. Here we use the a pretrained model provided in our repo under the folder (\output).
+```
+python visualization.py --data_source bio --model_folder bio_base_model
+```
+
 
 - visualize the trend of tools or datasets been investigated by researchers over the last ten years. 
 
-- visualize the research topics in 2D-space for fiding similar topics among scientific communities, which could be applied to cross-domain recommendationm, or cross-domain knowledge sharing.
+- visualize the research topics in 2D-space for finding similar topics among scientific communities, which could be applied to cross-domain recommendations, or cross-domain knowledge sharing.
 
 
 ## Model APIs
