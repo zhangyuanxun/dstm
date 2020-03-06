@@ -122,19 +122,19 @@ Before staring parameters estimation, you need to set up some parameters for run
 - the type of data source (data_source): it defines the type of data source you need to train your model, such as neuroscience (neuro), bioinformatics (bio). 
 - the number of topics (num_topcis): it defines the number of topics you want to capture from your corpus. We usually choose the value from 50 to 200 for both bioinformatics and neuroscience domains.
 - the number of iterations (num_iterations): it defines the number of iterations (epochs) your program will run. We usually choose the value from 50 to 100. 
-- the mode (mode): it defines the mode to train the model, for example, the estimation mode (est) uses a certain ratio (such as 80%) of dataset for parameter estimation and rest of dataset for evaluation; the inference mode (inf) is used to infer the probability of new dataset after parameter esitmation; and the demo mode (demo) is used to learn parameters for model demostration, which uses all datasets. 
-- the run mode of program (run_mode): it defines the running mode to run the program. Our program supports two modes, which allows you to run the program from begining, or run the program continously. 
-- the seed (seed): it is used by the random number generator, which can help you to re-produce the exprimental results. 
+- the mode (mode): it defines the mode to train the model, for example, the estimation mode (est) uses a certain ratio (such as 80%) of dataset for parameter estimation and rest of dataset for evaluation; the inference mode (inf) is used to infer the probability of new dataset after parameter estimation; and the demo mode (demo) is used to learn parameters for model demonstration, which uses all datasets. 
+- the run mode of the program (run_mode): it defines the running mode to run the program. Our program supports two modes, which allow you to run the program from begining or run the program continuously. 
+- the seed (seed): it is used by the random number generator, which can help you to reproduce the experimental results. 
 - verbose (verbose): it shows performance debug information.
-- the model output folder (model_folder): it specifies the model folder name for running continuously. If the program is running from begining, it will create a model by default.
+- the model output folder (model_folder): it specifies the model folder name for running continuously. If the program is running from the beginning, it will create a model by default.
 - model evaluation (evaluate): it specifies whether model evaluation or not.
-- save model file (save): it choose whether to save the model file or not.
+- save the model file (save): it choose whether to save the model file or not.
 
-Typically, you need to set up the four key parameters(data_source, num_topcis, num_iterations, mode, save) and keep the rest of parameters as the default. For example, if you train the model for demostratioin using corpus from bioinformatics domain from beginning.
+Typically, you need to set up the four key parameters(data_source, num_topcis, num_iterations, mode, save) and keep the rest of the parameters as the default. For example, if you train the model for demonstration using the corpus from the bioinformatics domain, the command will be
 ```
 python run_dstm.py --data_source bio --mode demo --run_mode start --num_iterations 50 --num_topics 50 --save yes
 ```
-Similarly, if you train the model using corpus from neuroscience domain from beginning.
+Similarly, if you train the model using corpus from the neuroscience domain, the command will be
 ```
 python run_dstm.py --data_source neuro --mode demo --run_mode start --num_iterations 50 --num_topics 70 --save yes
 ```
@@ -145,23 +145,30 @@ Similarly, you can also train state-of-the-art model (PLSA, LDA) using similar c
 python run_lda.py --data_source bio --mode demo --run_mode start --num_iterations 50 --num_topics 50 --save yes
 python run_plsa.py --data_source bio --mode demo --num_iterations 50 --num_topics 50 --save yes
 ```
-(Note, I haven't optimized our program. So, it will be slow to train the model. In addition, for each domain, we have provided trained model under the outpu/ folder, you can directly use it.) 
+(Note, I haven't optimized our program. So, it will be slow to train the model. In addition, for each domain, we have provided trained model under the output/ folder, you can directly use it.)
 
 ### Model Inference
-Model inference is to infer parameters of new dataset based on the trained model. The basic step to use model inference will be,
-- Run model parameters estimation (as described above) based on dataset from particular domain using esitmiation mode (est), and save the model file. Our program will automatically split the dataset into estimation part and inference part, and choose estimation part for trainning. 
+The model inference is to infer parameters of the new dataset based on the trained model. The basic step to use model inference will be,
+- Run model parameters estimation (as described above) based on a dataset from a particular domain using estimation mode (est), and save the model file. Our program will automatically split the dataset into the estimation part and inference part, and choose the estimation part for training. 
 ```
 python run_dstm.py --data_source bio --mode est --run_mode start --num_iterations 50 --num_topics 70 --save yes
 ```
-- Then, run  
+- Then, run the model inference algorithm by changing the mode into inference(inf) and providing the name of model folder.
 ```
-python run_dstm.py --data_source bio --mode inf --run_mode start --num_iterations 50 --num_topics 50 --save yes
+python run_dstm.py --data_source bio --mode inf --model_folder XXXXXX
 ```
 
 ## Visualization
-Visualization or model representation are very important in unsupervised learning, which can help us to understand the latent patterns of our problem, and evaluate the feasibility of the model.
+Model visualization or model representation is very important in unsupervised learning, which can help us to understand the latent patterns of our problem, and evaluate the feasibility of our model.
 
-After model parameter estimation, the model files will be generated. 
+After the model parameter estimation, the model files will be generated. Then, you can explore our model by using the visualization interfaces we provided. We have provided the pre-trained model for each domain (bioinformatics and neuroscience). 
+
+- visualize the relationship between research topics, research tools, and research datasets. 
+
+- visualize the trend of tools or datasets been investigated by researchers over the last ten years. 
+
+- visualize the research topics in 2D-space for fiding similar topics among scientific communities, which could be applied to cross-domain. 
+
 
 ## Model APIs
 
