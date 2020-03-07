@@ -42,6 +42,8 @@ run_dstm.py
 run_lda.py
 run_plsa.py
 text_utils.py
+trend_utils.py
+visualization.py
 ```
 - collector/ : contains scripts for to extract papers from online scientific journals archives
     - bio/
@@ -73,6 +75,8 @@ text_utils.py
 - run_lda.py: main file to run state-of-the-art LDA model, which includes model parameter estimation and inference. 
 - run_plsa.py: main file to run state-of-the-art pLSA model, which includes model parameter estimation and inference. 
 - text_utils.py : utility functions for text processing
+- trend_utils.py: core utility functions for topics trend analysis
+- visualization.py: core functions for topic visualization and demonstration
 
 ## Getting Started
 ### Data Collecting
@@ -254,7 +258,7 @@ topic 2:
           associated    ---       0.0109             BioMart    ---       0.0036                ccle    ---       0.0179
 ```
 
-- visualize the trend of tools or datasets been investigated by researchers over the last ten years. 
+- visualize the trend of tools or datasets been investigated by researchers for particular research topic over the last ten years. 
 
 - visualize the research topics in 2D-space for finding similar topics among scientific communities, which could be applied to cross-domain recommendations, or cross-domain knowledge sharing.
 

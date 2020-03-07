@@ -2,8 +2,9 @@ import argparse
 from input_fn import *
 import numpy as np
 import sys
+from trend_utilis import *
 
-NUM_PRINT_TERMS = 10
+
 np.set_printoptions(threshold=sys.maxsize)
 
 
@@ -11,16 +12,20 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Description the Command Line of DSTP Model')
     parser.add_argument('--data_source', help='Select data source: neuroscience(neuro), bioinformatics(bio), '
                                               '(default = %(default)s)', default='bio', choices=['bio', 'neuro'])
-    parser.add_argument('--type', default='table', choices=['table', 'trend', 'trend-analysis'],
+    parser.add_argument('--type', default='table', choices=['table', 'trend', 'trend_analysis'],
                         help="Provide type of visualization, such as table")
     parser.add_argument('--topk', help='Number of top K terms for visualization (default = %(default)s)', type=int,
                         default=10, choices=range(1, 101), metavar='(1, ..., 101)')
     parser.add_argument('--model_folder', help='Specify the model folder name.', type=str)
-
+    parser.add_argument('--trend_type', help='Select trend type: tool or dataset, ', choices=['tool', 'dataset'])
 
     args = parser.parse_args()
     if args.model_folder is None:
         parser.error('Please provide model folder')
+
+    if args.type == 'trend' or args.type == 'trend_analysis':
+        if args.trend_type != 'tool' and args.trend_type != 'dataset':
+            parser.error('Please provide trend type')
 
     return args
 
@@ -43,7 +48,7 @@ def dstp_parameter_estimation(kw, kt, ks, ztot, alpha, beta):
     return est_kw, est_kt, est_ks
 
 
-def dstp_topics_printer(args):
+def dstm_topics_tables(args):
     # get inputs data
     inputs = input_fn('demo', args.data_source)
     vocabs = inputs['vocab']
@@ -84,10 +89,29 @@ def dstp_topics_printer(args):
         print
         print
 
+def dstm_topics_trend_analysis(args):
+    pass
+
+def dstm_topics_trend(args):
+    data_source = args.data_source
+    model_folder = args.model_folder
+    trend_type = args.trend_type
+
+    if trend_type == 'tool':
+        tool_trend_demonstration(data_source, model_folder)
+    elif trend_type == 'dataset':
+        dataset_trend_demonstration(data_source, model_folder)
+
 
 if __name__ == "__main__":
     args = parse_args()
 
     if args.type == 'table':
-        dstp_topics_printer(args)
+        dstm_topics_tables(args)
+
+    if args.type == 'trend_analysis':
+        dstm_topics_trend_analysis(args)
+
+    if args.type == 'trend':
+        dstm_topics_trend(args)
 

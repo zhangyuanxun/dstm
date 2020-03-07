@@ -23,7 +23,7 @@ def tool_trend_analysis(data_source, model_folder):
             docs_info.update(json.load(fp))
 
     # get inputs data
-    inputs = input_fn('demo', args.data_source)
+    inputs = input_fn('demo', data_source)
 
     docs = inputs['docs']
     doc_tool_map = inputs['doc_tool_map']
@@ -34,7 +34,7 @@ def tool_trend_analysis(data_source, model_folder):
     num_vocabs = len(inputs['vocab'])
 
     # load model file
-    folder_name = MODELS_FOLDER + args.model_folder + '/'
+    folder_name = MODELS_FOLDER + model_folder + '/'
     kw = np.loadtxt(folder_name + 'kw.dat')
     kt = np.loadtxt(folder_name + 'kt.dat')
     ks = np.loadtxt(folder_name + 'ks.dat')
@@ -43,7 +43,7 @@ def tool_trend_analysis(data_source, model_folder):
     ztot = np.loadtxt(folder_name + '/ztot.dat')
     lbtot = np.loadtxt(folder_name + '/lbtot.dat')
 
-    with open(MODELS_FOLDER + args.model_folder + '/settings.json') as fp:
+    with open(MODELS_FOLDER + model_folder + '/settings.json') as fp:
         settings = json.load(fp)  # docs with bag of words
         alpha = settings['alpha']
         beta = settings['beta']
@@ -139,7 +139,7 @@ def dataset_trend_analysis(data_source, model_folder):
             docs_info.update(json.load(fp))
 
     # get inputs data
-    inputs = input_fn('demo', args.data_source)
+    inputs = input_fn('demo', data_source)
 
     docs = inputs['docs']
     doc_tool_map = inputs['doc_tool_map']
@@ -158,7 +158,7 @@ def dataset_trend_analysis(data_source, model_folder):
     ztot = np.loadtxt(folder_name + '/ztot.dat')
     lbtot = np.loadtxt(folder_name + '/lbtot.dat')
 
-    with open(MODELS_FOLDER + args.model_folder + '/settings.json') as fp:
+    with open(MODELS_FOLDER + model_folder + '/settings.json') as fp:
         settings = json.load(fp)  # docs with bag of words
         alpha = settings['alpha']
         beta = settings['beta']
@@ -231,7 +231,7 @@ def dataset_trend_analysis(data_source, model_folder):
             p_bar.update(1)
 
     # save trend model
-    folder_name = MODELS_FOLDER + args.model_folder + '/' + "dataset trend/"
+    folder_name = MODELS_FOLDER + model_folder + '/' + "dataset trend/"
 
     if not os.path.exists(folder_name):
         os.mkdir(folder_name)
@@ -261,7 +261,7 @@ def plot_trend(topic_id, trend_ratio, names, year_start, model_folder):
     plt.xlabel('Year', size=AX_SIZE)
     plt.ylabel('Ratio', size=AX_SIZE)
 
-    plt.legend(loc='best', fontsize=AX_SIZE, edgecolor='black', fancybox=False)
+    plt.legend(loc='best', fontsize=AX_SIZE, fancybox=False)
     plt.show()
 
     fig_name = "topic-" + str(topic_id) + ".pdf"
@@ -269,7 +269,7 @@ def plot_trend(topic_id, trend_ratio, names, year_start, model_folder):
         pdf.savefig(fig)
 
 
-def tool_trend_demonstration(data_source, model_folder):
+def tool_trend_demonstration(data_source, model_folder, target_topic=38):
     # get inputs data
     inputs = input_fn('demo', data_source)
     tools = inputs['tools']
@@ -281,8 +281,6 @@ def tool_trend_demonstration(data_source, model_folder):
     year_start = 2009
     for y in range(year_start, year_end + 1):
         tool_trend[y] = np.loadtxt(folder_name + str(y) + '.dat')
-
-    target_topic = 38
 
     trend_tool = np.zeros((len(tools), year_end - year_start + 1))
     for y in range(year_start, year_end + 1):
@@ -310,7 +308,7 @@ def tool_trend_demonstration(data_source, model_folder):
     plot_trend(target_topic, trend_tool, tools, year_start, folder_name)
 
 
-def dataset_trend_demonstration(data_source, model_folder):
+def dataset_trend_demonstration(data_source, model_folder, target_topic=18):
     # get inputs data
     inputs = input_fn('demo', data_source)
     datasets = inputs['datasets']
@@ -322,8 +320,6 @@ def dataset_trend_demonstration(data_source, model_folder):
     year_start = 2009
     for y in range(year_start, year_end + 1):
         dataset_trend[y] = np.loadtxt(folder_name + str(y) + '.dat')
-
-    target_topic = 18
 
     trend_dataset = np.zeros((len(datasets), year_end - year_start + 1))
     for y in range(year_start, year_end + 1):
