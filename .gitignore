@@ -10,5 +10,8 @@
 # large file
 
 # exclude files
-!/imgs/topic-38.pdf
-!/imgs/topic-44.pdf
+!/imgs/topic-38.png
+!/imgs/topic-44.png
+!/imgs/tsne_embedding_cross_domain.png
+!/imgs/tsne_embedding_single_domain_bio.png
+!/imgs/tsne_embedding_single_domain_neuro.png

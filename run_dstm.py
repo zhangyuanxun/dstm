@@ -12,7 +12,7 @@ def parse_args():
     parser.add_argument('--run_mode', help='Run model from start or continue, (default = %(default)s)',
                         default='start', choices=['start', 'continue'])
     parser.add_argument('--num_iterations', help='Number of iterations (default = %(default)s)', type=int,
-                        default=1, choices=range(0, 2000), metavar='(0, ..., 2000)')
+                        default=50, choices=range(0, 2000), metavar='(0, ..., 2000)')
     parser.add_argument('--num_topics', help='Number of topics (default = %(default)s)', type=int,
                         default=100, choices=range(1, 5001), metavar='(1, ..., 5000)')
     parser.add_argument('--seed', help='Set the seeds (default = %(default)s)', type=float,
