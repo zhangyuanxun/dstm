@@ -28,6 +28,7 @@ dataset/
         *.*
     common_tools.py
     stopwords.txt
+images/
 model/
     dstm.py
     lda.py
@@ -62,6 +63,7 @@ visualization.py
     - neuro/ : contains raw and processed datasets for neuroscience domains
     common_tools.py  : list of the common tools (such as python, c++), which are not considered by our model
     stopwords.txt  : list of the stop words
+- imgs/ : contains some experimental images
 - model/   : implements core topic model algorithms for this project
     - dstm.py  : implements the our domain-specific topic model algorithm
     - lda.py   : implements state-of-the-art algorithm [Latent Dirichlet Allocation (LDA)](http://jmlr.org/papers/volume3/blei03a/blei03a.pdf)
@@ -258,7 +260,19 @@ topic 2:
           associated    ---       0.0109             BioMart    ---       0.0036                ccle    ---       0.0179
 ```
 
-- visualize the trend of tools or datasets been investigated by researchers for particular research topic over the last ten years. 
+- visualize the trend of tools or datasets been investigated by researchers for a particular research topic over the last ten years. 
+To visualize the trend of tools or datasets over time, we need to run the analysis command the trend based on our pre-trained model first by using the command below. 
+Note, we have already analyzed the trend for each domain (bio, neuro). So, you don't need to run the analysis command. 
+```
+python visualization.py --data_source bio --type trend_analysis --model_folder bio_base_model --trend_type tool
+```
+After finishing analysis algorithm, you can plot the tool or dataset trend for each topic for particular domain, by using the command below. 
+```
+python visualization.py --data_source bio --type trend --model_folder bio_base_model --trend_type tool --topic_id 38
+```
+If anything goes well, there will be a trend figure popped up that is similar with figure below, and this figure will be also saved in relevant location
+(\output\bio_base_model\tool_trend)
+<img src='imgs/topic-38.pdf' align="middle" width="600px"/>
 
 - visualize the research topics in 2D-space for finding similar topics among scientific communities, which could be applied to cross-domain recommendations, or cross-domain knowledge sharing.
 

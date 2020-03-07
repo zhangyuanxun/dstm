@@ -1,9 +1,15 @@
-import argparse
 from input_fn import *
 from model.dstm import *
 from tqdm import tqdm
 import itertools
+import matplotlib
+import platform
+if platform.system() == "Darwin":
+    matplotlib.use('TkAgg')
+else:
+    matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+
 from matplotlib.backends.backend_pdf import PdfPages
 
 AX_SIZE = 14
@@ -116,7 +122,7 @@ def tool_trend_analysis(data_source, model_folder):
             p_bar.update(1)
 
     # save trend model
-    folder_name = MODELS_FOLDER + model_folder + '/' + "tool trend/"
+    folder_name = MODELS_FOLDER + model_folder + '/' + "tool_trend/"
 
     if not os.path.exists(folder_name):
         os.mkdir(folder_name)
@@ -173,7 +179,7 @@ def dataset_trend_analysis(data_source, model_folder):
     for y in range(2009, 2020):
         dataset_trend[y] = np.zeros((num_topics, len(datasets)))
 
-    with tqdm(total=len(docs), unit="docs", desc="dataset trend analysis") as p_bar:
+    with tqdm(total=len(docs), unit="docs", desc="dataset_trend analysis") as p_bar:
         for d in xrange(len(docs)):
             # get year of this paper
             year = docs_info[docs_idx[d]]['year']
@@ -231,7 +237,7 @@ def dataset_trend_analysis(data_source, model_folder):
             p_bar.update(1)
 
     # save trend model
-    folder_name = MODELS_FOLDER + model_folder + '/' + "dataset trend/"
+    folder_name = MODELS_FOLDER + model_folder + '/' + "dataset_trend/"
 
     if not os.path.exists(folder_name):
         os.mkdir(folder_name)
@@ -269,12 +275,12 @@ def plot_trend(topic_id, trend_ratio, names, year_start, model_folder):
         pdf.savefig(fig)
 
 
-def tool_trend_demonstration(data_source, model_folder, target_topic=38):
+def tool_trend_demonstration(data_source, model_folder, target_topic):
     # get inputs data
     inputs = input_fn('demo', data_source)
     tools = inputs['tools']
 
-    folder_name = MODELS_FOLDER + model_folder + '/' + 'tool trend' + '/'
+    folder_name = MODELS_FOLDER + model_folder + '/' + 'tool_trend' + '/'
 
     tool_trend = {}
     year_end = 2018
@@ -284,7 +290,7 @@ def tool_trend_demonstration(data_source, model_folder, target_topic=38):
 
     trend_tool = np.zeros((len(tools), year_end - year_start + 1))
     for y in range(year_start, year_end + 1):
-        tools_list = tool_trend[y][target_topic,:]
+        tools_list = tool_trend[y][target_topic, :]
         trend_tool[:, y - year_start] = tools_list
 
     weight = 0.4
@@ -308,12 +314,12 @@ def tool_trend_demonstration(data_source, model_folder, target_topic=38):
     plot_trend(target_topic, trend_tool, tools, year_start, folder_name)
 
 
-def dataset_trend_demonstration(data_source, model_folder, target_topic=18):
+def dataset_trend_demonstration(data_source, model_folder, target_topic):
     # get inputs data
     inputs = input_fn('demo', data_source)
     datasets = inputs['datasets']
 
-    folder_name = MODELS_FOLDER + model_folder + '/' + 'dataset trend' + '/'
+    folder_name = MODELS_FOLDER + model_folder + '/' + 'dataset_trend' + '/'
 
     dataset_trend = {}
     year_end = 2018

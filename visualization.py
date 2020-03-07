@@ -1,7 +1,4 @@
 import argparse
-from input_fn import *
-import numpy as np
-import sys
 from trend_utilis import *
 
 
@@ -16,6 +13,7 @@ def parse_args():
                         help="Provide type of visualization, such as table")
     parser.add_argument('--topk', help='Number of top K terms for visualization (default = %(default)s)', type=int,
                         default=10, choices=range(1, 101), metavar='(1, ..., 101)')
+    parser.add_argument('--topic_id', help='Provide the topic id of when you use the trend type.', type=int)
     parser.add_argument('--model_folder', help='Specify the model folder name.', type=str)
     parser.add_argument('--trend_type', help='Select trend type: tool or dataset, ', choices=['tool', 'dataset'])
 
@@ -26,6 +24,9 @@ def parse_args():
     if args.type == 'trend' or args.type == 'trend_analysis':
         if args.trend_type != 'tool' and args.trend_type != 'dataset':
             parser.error('Please provide trend type')
+
+        if args.type == 'trend' and args.topic_id is None:
+            parser.error('Please provide topic id')
 
     return args
 
@@ -89,18 +90,28 @@ def dstm_topics_tables(args):
         print
         print
 
-def dstm_topics_trend_analysis(args):
-    pass
 
-def dstm_topics_trend(args):
+def dstm_topics_trend_analysis(args):
     data_source = args.data_source
     model_folder = args.model_folder
     trend_type = args.trend_type
 
     if trend_type == 'tool':
-        tool_trend_demonstration(data_source, model_folder)
+        tool_trend_analysis(data_source, model_folder)
     elif trend_type == 'dataset':
-        dataset_trend_demonstration(data_source, model_folder)
+        dataset_trend_analysis(data_source, model_folder)
+
+
+def dstm_topics_trend(args):
+    data_source = args.data_source
+    model_folder = args.model_folder
+    trend_type = args.trend_type
+    topic_id = args.topic_id
+
+    if trend_type == 'tool':
+        tool_trend_demonstration(data_source, model_folder, topic_id)
+    elif trend_type == 'dataset':
+        dataset_trend_demonstration(data_source, model_folder, topic_id)
 
 
 if __name__ == "__main__":
