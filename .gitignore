@@ -8,3 +8,7 @@
 *.npy
 
 # large file
+
+# exclude files
+!/imgs/topic-38.pdf
+!/imgs/topic-44.pdf
