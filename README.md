@@ -272,7 +272,7 @@ python visualization.py --data_source bio --type trend --model_folder bio_base_m
 ```
 If anything goes well, there will be a trend figure popped up that is similar with figure below, and this figure will be also saved in relevant location
 (\output\bio_base_model\tool_trend)
-<img src='imgs/topic-38.png' align="middle" width="600px"/>
+<img src='imgs/topic-38.png' align="center" width="500px"/>
 
 - visualize the research topics in 2D-space for finding similar topics among scientific communities, which could be applied to cross-domain recommendations, or cross-domain knowledge sharing.
 
