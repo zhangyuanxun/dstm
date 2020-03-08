@@ -39,6 +39,8 @@ output/
 constants.py
 data_collector.py
 data_processor.py
+input_fn.py
+model_api.py
 README.md
 run_dstm.py
 run_lda.py
@@ -75,10 +77,12 @@ visualization.py
     - neuro_base_model: pre-trained neuroscience model file
 - constants.py : define some constant variables
 - data_collector.py : utility functions to collect data from raw dataset (NSF Grant dataset) or from other websites (Google Scholar)
-- data_processor.py : utility functions to transform raw dataset into required data format (such as bag-of-words) by our model. 
-- run_dstm.py : main file to run DSTM model, which includes model parameter estimation and inference. 
-- run_lda.py : main file to run state-of-the-art LDA model, which includes model parameter estimation and inference. 
-- run_plsa.py : main file to run state-of-the-art pLSA model, which includes model parameter estimation and inference. 
+- data_processor.py : utility functions to transform raw dataset into required data format (such as bag-of-words) by our model
+- input_fn.py : define input pipelines
+- model_api.py : An example to demonstrate how to use DSTM model
+- run_dstm.py : main file to run DSTM model, which includes model parameter estimation and inference
+- run_lda.py : main file to run state-of-the-art LDA model, which includes model parameter estimation and inference
+- run_plsa.py : main file to run state-of-the-art pLSA model, which includes model parameter estimation and inference
 - text_utils.py : utility functions for text processing
 - trend_utils.py : core utility functions for topics trend analysis
 - tsne.py : tSNE algorithm to visualize topics in 2D space
