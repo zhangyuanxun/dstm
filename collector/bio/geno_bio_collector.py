@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import urllib2
 import json
 import sys
-from contants import *
+from constants import *
 
 
 def collector():

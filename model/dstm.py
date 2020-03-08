@@ -3,7 +3,7 @@ import random
 from datetime import datetime
 import sys
 from time import time
-from contants import *
+from constants import *
 import json
 from scipy.special import gammaln
 

@@ -36,6 +36,7 @@ model/
 output/
     bio_base_model/
     neuro_base_model/
+constants.py
 data_collector.py
 data_processor.py
 README.md
@@ -44,6 +45,7 @@ run_lda.py
 run_plsa.py
 text_utils.py
 trend_utils.py
+tsne.py
 visualization.py
 ```
 - collector/ : contains scripts for to extract papers from online scientific journals archives
@@ -71,14 +73,16 @@ visualization.py
 - output/  : the trained model files will be automatically saved in this folder
     - bio_base_model : pre-trained bioinformatics model file
     - neuro_base_model: pre-trained neuroscience model file
-- data_collector.py: utility functions to collect data from raw dataset (NSF Grant dataset) or from other websites (Google Scholar)
-- data_processor.py: utility functions to transform raw dataset into required data format (such as bag-of-words) by our model. 
-- run_dstm.py: main file to run DSTM model, which includes model parameter estimation and inference. 
-- run_lda.py: main file to run state-of-the-art LDA model, which includes model parameter estimation and inference. 
-- run_plsa.py: main file to run state-of-the-art pLSA model, which includes model parameter estimation and inference. 
+- constants.py : define some constant variables
+- data_collector.py : utility functions to collect data from raw dataset (NSF Grant dataset) or from other websites (Google Scholar)
+- data_processor.py : utility functions to transform raw dataset into required data format (such as bag-of-words) by our model. 
+- run_dstm.py : main file to run DSTM model, which includes model parameter estimation and inference. 
+- run_lda.py : main file to run state-of-the-art LDA model, which includes model parameter estimation and inference. 
+- run_plsa.py : main file to run state-of-the-art pLSA model, which includes model parameter estimation and inference. 
 - text_utils.py : utility functions for text processing
-- trend_utils.py: core utility functions for topics trend analysis
-- visualization.py: core functions for topic visualization and demonstration
+- trend_utils.py : core utility functions for topics trend analysis
+- tsne.py : tSNE algorithm to visualize topics in 2D space
+- visualization.py : core functions for topic visualization and demonstration
 
 ## Getting Started
 ### Data Collecting
@@ -330,7 +334,7 @@ python tsne.py --type single --model_folder1 neuro_base_model --num_iterations 2
 Finally, you can also map topics from different into the same 2D space by using "cross" mode for cross domain demonstration
 
 ```
-python tsne.py --type cross --model_folder2 bio_base_model --model_folder1 neuro_base_model --num_iterations 5000
+python tsne.py --type cross --model_folder1 bio_base_model --model_folder2 neuro_base_model --num_iterations 5000
 ```
 <p align="center">
     <img src='imgs/tsne_embedding_cross_domain.png' width="600px"/>
@@ -338,6 +342,38 @@ python tsne.py --type cross --model_folder2 bio_base_model --model_folder1 neuro
 In the figure above, the lighter color belongs to one domain, and the darker color belongs to another domain. 
 
 ## Model APIs
+We can also use the pre-trained model to do some inferences or recommendations based on the user's queries. 
+For example, you can ask the model to recommend tools or datasets for "neuron simulation". 
+Here, we provide an example to demonstrate how to use our model. This example is included in the file (model_api.py). 
+Basically, you just need two steps a) load the model; b) query from the model;
+```
+# a) load the model 
+# define the model path to load the model (here, we use our bioinformatics pre-trained model)
+
+model_folder = 'neuro_base_model/'
+model_path = os.path.join(dirname(os.path.realpath(__file__)), 'output/') + model_folder
+
+# load the model by initialize the DSTM model
+model = DSTM_Model(model_path)
+
+# b) define your query, and query from the model
+s = 'neuron simulation in neuroscience'
+model.query(s)
+```
+Then, our model will recommend which tools and dataset for neuron simulation.
+```
+Highly matched topics is:
+	 topic 38 : neurons channels neuron somatic bursting network
+		 Suggested tools:  neurontool, xppaut, modeldb
+		 Suggested datasets: somatic, bursting, stomatogastric
+
+	 topic 50 : itch network scratching model models social
+		 Suggested tools:  brian, genesistool, moosetool
+		 Suggested datasets: scratch, integrators, spinal
+```
+
+
+
 
 
 ## Citations

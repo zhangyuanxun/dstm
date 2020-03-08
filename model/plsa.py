@@ -1,7 +1,7 @@
 import numpy as np
 from datetime import datetime
 import sys
-from contants import *
+from constants import *
 import json
 
 EM_THRESHOLD = 10

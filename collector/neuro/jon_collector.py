@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import urllib2
 import json
-from contants import *
+from constants import *
 import sys
 
 

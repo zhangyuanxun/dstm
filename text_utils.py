@@ -1,6 +1,6 @@
 import re
 from nltk.corpus import stopwords
-from contants import *
+from constants import *
 
 
 def remove_non_ascii(text):

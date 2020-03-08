@@ -1,4 +1,4 @@
-from contants import *
+from constants import *
 import json
 from dataset.bio.bio_tools import *
 from dataset.bio.bio_dataset import *
