@@ -265,31 +265,7 @@ topic 2:
 ```
 
 - visualize the trend of tools or datasets been investigated by researchers for a particular research topic over the last ten years. 
-To visualize the trend of tools or datasets over time, we need to run the analysis command the trend based on our pre-trained model first by using the command below. 
-Note, we have already analyzed the trend for each domain (bio, neuro). So, you don't need to run the analysis command. 
-```
-python visualization.py --data_source bio --type trend_analysis --model_folder bio_base_model --trend_type tool
-```
-After finishing analysis algorithm, you can plot the tool or dataset trend for each topic for particular domain, by using the command below. 
-```
-python visualization.py --data_source bio --type trend --model_folder bio_base_model --trend_type tool --topic_id 38
-```
-If anything goes well, there will be a trend figure popped up that is similar to the figure below, and this figure will be also saved in relevant location
-(\output\bio_base_model\tool_trend)
-<p align="center">
-<img src='imgs/topic-38.png' width="600px"/>
-</p>
-Feel free to explore another topics, for example, the topic_id 44 is relevant deep learning for bioinformatics.
-
-```
-python visualization.py --data_source bio --type trend --model_folder bio_base_model --trend_type tool --topic_id 44
-```
-<p align="center">
-<img src='imgs/topic-44.png' width="600px"/>
-</p>
-
-- visualize the trend of tools or datasets been investigated by researchers for a particular research topic over the last ten years. 
-To visualize the trend of tools or datasets over time, we need to run the analysis command the trend based on our pre-trained model first by using the command below. 
+To visualize the trend of tools or datasets over time, we need to run the trend analysis command based on our pre-trained model first by using the command below. 
 Note, we have already analyzed the trend for each domain (bio, neuro). So, you don't need to run the analysis command. 
 ```
 python visualization.py --data_source bio --type trend_analysis --model_folder bio_base_model --trend_type tool
