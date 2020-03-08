@@ -344,6 +344,7 @@ model.query(s)
 ```
 Then, our model will recommend some tools and datasets for relevant "neuron simulation" research topic. 
 ```
+Highly matched topics is:
 	 topic 38 : neurons channels neuron somatic bursting network
 		 Suggested tools:  neurontool, xppaut, modeldb
 		 Suggested datasets: somatic, bursting, stomatogastric
