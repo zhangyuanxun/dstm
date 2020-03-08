@@ -354,10 +354,6 @@ Highly matched topics is:
 		 Suggested datasets: scratch, integrators, spinal
 ```
 
-
-
-
-
 ## Citations
 ```
 @INPROCEEDINGS{dstm2018zhang,
