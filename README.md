@@ -278,7 +278,7 @@ python visualization.py --data_source bio --type trend --model_folder bio_base_m
 ```
 If anything goes well, there will be a trend figure popped up that is similar to the figure below, and this figure will be also saved in the relevant location (\output\bio_base_model\tool_trend)
 <p align="center">
-<img src='imgs/topic-38.png' width="600px"/>
+<img src='imgs/topic-38.png' width="500px"/>
 </p>
 Feel free to explore other topics, for example, the topic_id 44 is relevant deep learning for bioinformatics.
 
@@ -286,7 +286,7 @@ Feel free to explore other topics, for example, the topic_id 44 is relevant deep
 python visualization.py --data_source bio --type trend --model_folder bio_base_model --trend_type tool --topic_id 44
 ```
 <p align="center">
-<img src='imgs/topic-44.png' width="600px"/>
+<img src='imgs/topic-44.png' width="500px"/>
 </p>
 
 - visualize the research topics in 2D-space for finding similar topics among scientific communities, which could be applied to cross-domain recommendations, or cross-domain knowledge sharing.
@@ -299,7 +299,7 @@ python tsne.py --type single --model_folder1 bio_base_model --num_iterations 200
 If anything goes well, there will be a figure popped up that is similar to the figure below, and this figure will be also saved in the relevant location (\output\)
 
 <p align="center">
-    <img src='imgs/tsne_embedding_single_domain_bio.png' width="600px"/>
+    <img src='imgs/tsne_embedding_single_domain_bio.png' width="500px"/>
 </p>
 
 Or you can also explore neuro topics into 2D space by using this command,
@@ -307,7 +307,7 @@ Or you can also explore neuro topics into 2D space by using this command,
 python tsne.py --type single --model_folder1 neuro_base_model --num_iterations 2000
 ```
 <p align="center">
-    <img src='imgs/tsne_embedding_single_domain_neuro.png' width="600px"/>
+    <img src='imgs/tsne_embedding_single_domain_neuro.png' width="500px"/>
 </p>
 Finally, you can also map topics from different into the same 2D space by using "cross" mode for cross domain demonstration
 
@@ -315,7 +315,7 @@ Finally, you can also map topics from different into the same 2D space by using 
 python tsne.py --type cross --model_folder1 bio_base_model --model_folder2 neuro_base_model --num_iterations 5000
 ```
 <p align="center">
-    <img src='imgs/tsne_embedding_cross_domain.png' width="600px"/>
+    <img src='imgs/tsne_embedding_cross_domain.png' width="500px"/>
 </p>
 In the figure above, the lighter color belongs to one domain, and the darker color belongs to another domain. 
 
