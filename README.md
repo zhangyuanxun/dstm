@@ -342,7 +342,7 @@ model = DSTM_Model(model_path)
 s = 'neuron simulation in neuroscience'
 model.query(s)
 ```
-Then, our model will recommend which tools and dataset for research topic such as "neuron simulation".
+Then, our model will recommend some tools and datasets for relevant "neuron simulation" research topic. 
 ```
 Highly matched topics is:
 	 topic 38 : neurons channels neuron somatic bursting network
