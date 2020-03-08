@@ -3,7 +3,7 @@ from input_fn import *
 
 NUM_ITEMS = 3
 NUM_WORD_TERMS = 6
-
+NUM_TOPICS = 3
 
 def dxtp_parameter_estimation(kw, kt, ks, ztot, alpha, beta):
     num_topics = kw.shape[0]
@@ -71,7 +71,7 @@ class DSTM_Model(object):
             p = np.sum(np.log(self.est_kw[k, ids]))
             probs.append(p)
 
-        topics = np.argsort(probs)[::-1][:2]
+        topics = np.argsort(probs)[::-1][:NUM_TOPICS]
         print("Highly matched topics is:")
         for i in range(len(topics)):
             topic_summary = ''
