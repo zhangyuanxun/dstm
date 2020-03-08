@@ -266,7 +266,9 @@ topic 2:
 
 - visualize the trend of tools or datasets been investigated by researchers for a particular research topic over the last ten years. 
 To visualize the trend of tools or datasets over time, we need to run the trend analysis command based on our pre-trained model first by using the command below. 
-Note, we have already analyzed the trend for each domain (bio, neuro). So, you don't need to run the analysis command. 
+
+(Note, we have already analyzed the trend for each domain (bio, neuro). So, you don't need to run the analysis command.)
+
 ```
 python visualization.py --data_source bio --type trend_analysis --model_folder bio_base_model --trend_type tool
 ```
