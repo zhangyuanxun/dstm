@@ -292,8 +292,8 @@ def single_domain(folder, num_iterations):
         plt.text(Y[i, 0], Y[i, 1], topic_summaries[i], horizontalalignment='center',
                  verticalalignment='center', fontsize=3)
 
-    ax.set_axis_off()
-    ax.grid(False)
+    #ax.set_axis_off()
+    #ax.grid(False)
     fig.tight_layout()
     plt.show()
 
@@ -353,8 +353,8 @@ def cross_domain(folder1, folder2, num_iterations):
         plt.text(Y[i, 0], Y[i, 1], topic_summaries[i], horizontalalignment='center',
                  verticalalignment='center', fontsize=3)
 
-    ax.set_axis_off()
-    ax.grid(False)
+    #ax.set_axis_off()
+    #ax.grid(False)
     fig.tight_layout()
     plt.show()
 

@@ -284,14 +284,37 @@ python visualization.py --data_source bio --type trend --model_folder bio_base_m
 <img src='imgs/topic-44.png' width="600px"/>
 </p>
 
+- visualize the trend of tools or datasets been investigated by researchers for a particular research topic over the last ten years. 
+To visualize the trend of tools or datasets over time, we need to run the analysis command the trend based on our pre-trained model first by using the command below. 
+Note, we have already analyzed the trend for each domain (bio, neuro). So, you don't need to run the analysis command. 
+```
+python visualization.py --data_source bio --type trend_analysis --model_folder bio_base_model --trend_type tool
+```
+After finishing the analysis algorithm, you can plot the tool or dataset trend for each topic for a particular domain, by using the command below. 
+```
+python visualization.py --data_source bio --type trend --model_folder bio_base_model --trend_type tool --topic_id 38
+```
+If anything goes well, there will be a trend figure popped up that is similar to the figure below, and this figure will be also saved in the relevant location (\output\bio_base_model\tool_trend)
+<p align="center">
+<img src='imgs/topic-38.png' width="600px"/>
+</p>
+Feel free to explore other topics, for example, the topic_id 44 is relevant deep learning for bioinformatics.
+
+```
+python visualization.py --data_source bio --type trend --model_folder bio_base_model --trend_type tool --topic_id 44
+```
+<p align="center">
+<img src='imgs/topic-44.png' width="600px"/>
+</p>
+
 - visualize the research topics in 2D-space for finding similar topics among scientific communities, which could be applied to cross-domain recommendations, or cross-domain knowledge sharing.
-We use the tSNE algorithm to mapping high dimensional dataset (topics distribution) into low dimensional space (such as 2D space), which provides scientists to find similar topics for knowledge sharing or collaboration.
-Our algorithm can be applied to single domain demonstration or cross-domain demonstration. For example, you can map bioinformatics topics into 2D space by
+We use the tSNE algorithm to mapping high dimensional datasets (topics distribution) into low dimensional space (such as 2D space), which provides scientists to find similar topics for knowledge sharing or collaboration.
+Our algorithm can be applied to a single domain demonstration or cross-domain demonstration. For example, you can map bioinformatics topics into 2D space by
 using the command below,
 ```
-python tsne.py --type single --model_folder1 bio_base_model --num_iterations 1000
+python tsne.py --type single --model_folder1 bio_base_model --num_iterations 2000
 ```
-If anything goes well, there will be a figure popped up that is similar to the figure below, and this figure will be also saved in relevant location (\output\)
+If anything goes well, there will be a figure popped up that is similar to the figure below, and this figure will be also saved in the relevant location (\output\)
 
 <p align="center">
     <img src='imgs/tsne_embedding_single_domain_bio.png' width="600px"/>
@@ -299,12 +322,20 @@ If anything goes well, there will be a figure popped up that is similar to the f
 
 Or you can also explore neuro topics into 2D space by using this command,
 ```
-python tsne.py --type single --model_folder1 neuro_base_model --um_iterations 1000
+python tsne.py --type single --model_folder1 neuro_base_model --num_iterations 2000
 ```
 <p align="center">
     <img src='imgs/tsne_embedding_single_domain_neuro.png' width="600px"/>
 </p>
+Finally, you can also map topics from different into the same 2D space by using "cross" mode for cross domain demonstration
 
+```
+python tsne.py --type cross --model_folder2 bio_base_model --model_folder1 neuro_base_model --num_iterations 5000
+```
+<p align="center">
+    <img src='imgs/tsne_embedding_cross_domain.png' width="600px"/>
+</p>
+In the figure above, the lighter color belongs to one domain, and the darker color belongs to another domain. 
 
 ## Model APIs
 
