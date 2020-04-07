@@ -35,6 +35,8 @@ def input_fn(mode, data_source):
 
         tools = [t[0] for t in BIO_TOOLS_MAP]
         datasets = [s[1] for s in BIO_DATASETS_MAP]
+        tools_info = {t[0]: (t[0], t[3]) for t in BIO_TOOLS_MAP}
+        datasets_info = {s[1]: (s[0], s[3]) for s in BIO_DATASETS_MAP}
 
         common_tools = []
         for i in range(len(BIO_DATASETS_MAP)):
@@ -67,6 +69,9 @@ def input_fn(mode, data_source):
 
         tools = [t[1] for t in NEURO_TOOLS_MAP]
         datasets = [s[1] for s in NEURO_DATASETS_MAP]
+
+        tools_info = {t[1]: (t[0], t[3]) for t in NEURO_TOOLS_MAP}
+        datasets_info = {s[1]: (s[0], s[3]) for s in NEURO_DATASETS_MAP}
 
         common_tools = []
         for i in range(len(NEURO_TOOLS_MAP)):
@@ -128,10 +133,10 @@ def input_fn(mode, data_source):
                   'doc_tool_map': doc_tool_map[int(total_docs * ratio):],
                   'doc_dataset_map': doc_dataset_map[int(total_docs * ratio):],
                   'trained_tool': trained_tool, 'trained_dataset': trained_dataset,
-                  'common_tool': common_tools}
+                  'common_tool': common_tools, 'tools_info': tools_info, 'datasets_info': datasets_info}
     else:
         inputs = {'vocab': vocabs, 'tools': tools, 'datasets': datasets, 'docs_idx': doc_idx,
                   'docs': docs, 'doc_tool_map': doc_tool_map, 'doc_dataset_map': doc_dataset_map,
-                  'common_tool': common_tools}
+                  'common_tool': common_tools, 'tools_info': tools_info, 'datasets_info': datasets_info}
 
     return inputs
